@@ -30,8 +30,41 @@ function summarize_txt() {
     });
 }
 
-summarize_txt()
+function summarize_pdf(){
+    // unirest.get("https://meaningcloud-summarization-v1.p.rapidapi.com/summarization-1.0?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FStar_Trek&doc=%2FUsers%2Fchongyang%2FDownloads%2FCL-dialog.pdf&sentences=5")
+    // .header("X-RapidAPI-Host", "meaningcloud-summarization-v1.p.rapidapi.com")
+    // .header("X-RapidAPI-Key", "ef481a34d9msh49b3c6964d8af2ep1f3bd8jsnd5a7eb6d7347")
+    // .header("Accept", "application/json")
+    // .end(function (result) {
+    //   console.log(result.status, result.headers, result.body);
+    // });
 
+    // unirest.get("https://meaningcloud-summarization-v1.p.rapidapi.com/summarization-1.0?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FStar_Trek&sentences=5")
+    unirest.get("https://meaningcloud-summarization-v1.p.rapidapi.com/summarization-1.0?doc=%2FUsers%2Fchongyang%2FDownloads%2Ftemplate_weeklyreports.pdf&sentences=5")
+    .header("X-RapidAPI-Host", "meaningcloud-summarization-v1.p.rapidapi.com")
+    .header("X-RapidAPI-Key", "ef481a34d9msh49b3c6964d8af2ep1f3bd8jsnd5a7eb6d7347")
+    .header("Accept", "application/json")
+    .end(function (result) {
+      console.log(result.status);
+      console.log(result.headers);
+      console.log(result.body)
+    });
+}
+
+function convert_pdf(file){
+    var convertapi = require('convertapi')('DaTFjz8KEp47G5pB');
+    convertapi.convert('txt', {
+        File: file
+    }, 'pdf').then(function(result) {
+        console.log(result)
+        result.saveFiles('output_txt');
+    });
+}
+
+file = 'my_file.pdf'
+convert_pdf(file)
+// summarize_txt()
+// summarize_pdf()
 
 
 
