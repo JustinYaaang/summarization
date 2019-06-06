@@ -1,0 +1,14 @@
+{
+  "name": "summarization_translation",
+  "version": "1.0.0",
+  "description": "a project to summarize and translate the pasted text or attached file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "justin yang",
+  "license": "ISC",
+  "dependencies": {
+    "unirest": "^0.6.0"
+  }
+}
