@@ -9,6 +9,7 @@
   "author": "justin yang",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/translate": "^4.0.1",
     "unirest": "^0.6.0"
   }
 }
